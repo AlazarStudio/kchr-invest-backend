@@ -74,6 +74,20 @@ model Document {
   groupId Int
 }
 
+model InvestGroup {
+  id            Int             @id @default(autoincrement())
+  title         String
+  InvestDocument InvestDocument[]
+}
+
+model InvestDocument {
+  id          Int         @id @default(autoincrement())
+  title       String
+  src         String
+  InvestGroup InvestGroup @relation(fields: [groupId], references: [id])
+  groupId     Int
+}
+
 model Info {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now()) @map("created_at")
