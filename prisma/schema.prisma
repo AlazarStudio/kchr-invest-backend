@@ -23,3 +23,31 @@ model User {
   name     String
   password String
 }
+
+model News {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  title     String
+  date      DateTime
+  text      String
+  images    String[]
+}
+
+model Project {
+  id                   Int      @id @default(autoincrement())
+  createdAt            DateTime @default(now()) @map("created_at")
+  updatedAt            DateTime @updatedAt @map("updated_at")
+  title                String
+  location             String
+  expectedIncome       Int      @map("expected_income")
+  description          String
+  investmentIndicators String   @map("investment_indicators")
+  productionVolume     String   @map("production_volume")
+  annualRevenue        Int      @map("annual_revenue")
+  financingStructure   String   @map("financing_structure")
+  taxesAndInsurance    String   @map("taxes_and_insurance")
+  jobs                 String
+  socialEffect         String   @map("social_effect")
+  images               String[]
+}
