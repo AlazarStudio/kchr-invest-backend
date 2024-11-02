@@ -10,9 +10,13 @@ import sharp from 'sharp'
 import { errorHandler, notFound } from './app/middleware/error.middleware.js'
 
 import authRoutes from './app/auth/auth.routes.js'
+import documentRoutes from './app/docs/docs.routes.js'
+import groupRoutes from './app/group/group.routes.js'
+import infoRoutes from './app/info/info.routes.js'
 import newsRoutes from './app/news/news.routes.js'
 import { prisma } from './app/prisma.js'
 import projectsRoutes from './app/projects/projects.routes.js'
+import smRoutes from './app/sm/sm.routes.js'
 import userRoutes from './app/user/user.routes.js'
 
 dotenv.config()
@@ -190,8 +194,12 @@ async function main() {
 
 	app.use('/api/auth', authRoutes)
 	app.use('/api/users', userRoutes)
+	app.use('/api/support-measures', smRoutes)
 	app.use('/api/news', newsRoutes)
 	app.use('/api/projects', projectsRoutes)
+	app.use('/api/docs', documentRoutes)
+	app.use('/api/group', groupRoutes)
+	app.use('/api/info', infoRoutes)
 
 	app.use(notFound)
 	app.use(errorHandler)

@@ -24,6 +24,14 @@ model User {
   password String
 }
 
+model SupportMeasures {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  title     String
+  images    String[]
+}
+
 model News {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now()) @map("created_at")
@@ -50,4 +58,25 @@ model Project {
   jobs                 String
   socialEffect         String   @map("social_effect")
   images               String[]
+}
+
+model Group {
+  id       Int        @id @default(autoincrement())
+  title    String
+  Document Document[]
+}
+
+model Document {
+  id      Int    @id @default(autoincrement())
+  title   String
+  src     String
+  Group   Group  @relation(fields: [groupId], references: [id])
+  groupId Int
+}
+
+model Info {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  text      String
 }
