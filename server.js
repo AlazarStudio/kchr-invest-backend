@@ -215,10 +215,10 @@ async function main() {
 
 	const sslOptions = {
 		key: fs.readFileSync(
-			'../../../etc/letsencrypt/live/backend.kch-invest.ru/privkey.pem'
+			'../../../etc/letsencrypt/live/backend.kchr-invest.ru/privkey.pem'
 		),
 		cert: fs.readFileSync(
-			'../../../etc/letsencrypt/live/backend.kch-invest.ru/fullchain.pem'
+			'../../../etc/letsencrypt/live/backend.kchr-invest.ru/fullchain.pem'
 		)
 	}
 
